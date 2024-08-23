@@ -1,0 +1,113 @@
+  body {
+            background-image: url('/static/image/background.jpg');
+            background-position: center 10%  ;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-size: auto;
+            background-repeat: no-repeat;
+
+            }
+
+        .container {
+background-color: white;
+            width: 320px;
+            margin: auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            line-height: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+     position: absolute;
+    top: 20px; /* 10px from the bottom of the viewport */
+    right: 600px;
+}
+
+
+
+.link {
+    color: darkmagenta
+}
+
+ .personal-details-form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .personal-details-form label {
+            margin: 1px 0 0px;
+            font-weight: bold;
+        }
+
+        .personal-details-form input {
+           padding: 0px;
+           margin-bottom: 20px;
+           border: 1px solid #ccc;
+           border-radius: 4px;
+           width: 100%;
+           padding-right: 40px; /* Adjust to make space for the icon */
+           padding-left: 10px; /* Optional: padding for the text */
+           height: 40px;
+           box-sizing: border-box;
+        }
+
+         .form-group {
+    margin-bottom: 15px;
+}
+
+.input-wrapper {
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+.input-icon {
+    position: absolute;
+    right: 10px; /* Align icon to the right */
+    height: 24px; /* Adjust the size of the icon */
+    width: 24px; /* Adjust the size of the icon */
+    border: none;
+    border-radius: 50%;
+    outline: none;
+}
+
+        .input-wrapper input {
+            width:100%;
+            padding: 6px 0px;
+            }
+        .input-wrapper svg {
+             position:absolute;
+             right: 5px;
+             top: 20px;
+             transform: translateY(-40%);
+        }
+
+
+        .btn-dark {
+    background-color: rgb(107, 3, 107);
+    /* border-radius: 35px; */
+}
+  .link-button {
+    display: inline-block;
+    padding: 20px 20px;
+    font-size: 16px;
+    width:290px;
+    height:40px;
+    text-align: center;
+    vertical-align: middle;
+    line-height: 1.5
+    cursor: pointer;
+
+    color: #fff;
+    background-color: black; /* Button background color */
+    text-decoration: none; /* Remove underline from link */
+    border-radius: 5px; /* Rounded corners */
+    border: 1px solid #007bff; /* Border matching the background */
+    transition: background-color 0.3s, color 0.3s; /* Smooth transition */
+}
+
+.link-button:hover {
+    background-color: #0056b3; /* Darker background on hover */
+    color: #e6e6e6; /* Change text color on hover */
+}
+

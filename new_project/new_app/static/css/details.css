@@ -1,0 +1,62 @@
+body {
+            background-image: url('/static/image/background.jpg');
+            background-position: center -60%  ;
+            background-size: cover;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+        }
+        .container {
+            background-color: white;
+            max-width: 500px;
+            width: 325px;
+            margin: auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .heading {
+            font-size: 26px;
+            text-align: center;
+            left:10px;
+            margin-bottom: 20px;
+        }
+          .personal-details-form {
+    display: flex;
+    flex-direction: column;
+}
+
+.personal-details-form label {
+    margin: 10px 0 5px;
+    font-weight: bold;
+}
+
+.personal-details-form input {
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+        .link-button {
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 16px;
+    width:290px;
+    text-align: center;
+    color: #fff;
+    background-color: black; /* Button background color */
+    text-decoration: none; /* Remove underline from link */
+    border-radius: 5px; /* Rounded corners */
+    border: 1px solid #007bff; /* Border matching the background */
+    transition: background-color 0.3s, color 0.3s; /* Smooth transition */
+}
+
+.link-button:hover {
+    background-color: #0056b3; /* Darker background on hover */
+    color: #e6e6e6; /* Change text color on hover */
+}
