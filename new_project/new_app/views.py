@@ -47,12 +47,23 @@ class JobDetailsView(FormView):
     form_class = EmployerForm
 
     def get_form_kwargs(self):
-        return {'instance': self.request.user,
-                'data': self.request.POST}
+        kwargs = super().get_form_kwargs()
+        if self.request.user.is_authenticated:
+            kwargs.update({
+                'instance': self.request.user,
+                'data': self.request.POST or None,
+            })
+        else:
+            kwargs.update({
+                'data': self.request.POST or None,
+            })
+        return kwargs
 
     def form_valid(self, form):
-        form.save()
-        return redirect(self.success_url)
+        if self.request.user.is_authenticated:
+            form.save()
+        return super().form_valid(form)
 
 
-
+class JobSeekerView(TemplateView):
+    template_name = 'Dating/job_seeker.html'

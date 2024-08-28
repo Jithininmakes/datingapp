@@ -3,31 +3,173 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Job Status Checkout</title>
-    {% load static %}
-        <link rel="stylesheet" href="static/css/option.css">
+    <title>Checkbox Navigation</title>
     <style>
+        body {
+            background-image: url('/static/image/background.jpg');
+            background-position: center 120%  ;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-size: auto;
+            background-repeat: no-repeat;
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        .container {
+            position: fixed;
+            top:150px;
+            right: 600px;
+            max-width: 270px;
+            width: 265px;
+            margin: auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            background-color: #f9f9f9;
 
+        }
+        .checkbox-group {
+            margin-bottom: 20px;
+        }
+        .checkbox-group label {
+            display: block;
+            margin-bottom: 10px;
+        }
+        button {
+            width: 100%;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            background-color: black;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        .error {
+            color: red;
+            margin-top: 10px;
+        }
     </style>
 </head>
 <body>
-<div class="bg-image">
     <div class="container">
-        <div class="heading"><b>Job Status</b></div><br>
-        <div class="form-check">
-             <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-             <label class="form-check-label" for="flexCheckDefault">Employee</label>
+        <center><h2>Job Status</h2></center><br>
+        <div class="checkbox-group">
+            <label><input type="checkbox" id="employee" name="role"> Employee</label>
+            <label><input type="checkbox" id="employer" name="role"> Employer</label>
+            <label><input type="checkbox" id="jobseeker" name="role"> Jobseeker</label>
         </div>
-        <div class="form-check">
-             <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked>
-             <label class="form-check-label" for="flexCheckChecked">Employer</label>
-        </div>
-        <div class="form-check">
-             <input class="form-check-input" type="checkbox" value=""  checked>
-             <label class="form-check-label" for="flexCheckChecked">Job Seeker</label>
-        </div>
-           <a href="{% url 'new_app:job_details' %}" class="link-button">Next</a>
+        <button onclick="navigate()">Next</button>
+        <div id="error-message" class="error"></div>
     </div>
-    </div>
+
+    <script>
+        function navigate() {
+            var employee = document.getElementById("employee");
+            var employer = document.getElementById("employer");
+            var jobseeker = document.getElementById("jobseeker");
+            var errorMessage = document.getElementById("error-message");
+
+            // Clear previous error message
+            errorMessage.textContent = "";
+
+            var selectedCount = 0;
+            var selectedPage = "";
+
+            if (employee.checked) {
+                selectedCount++;
+                selectedPage = "http://127.0.0.1:8001/job_details";
+            }
+            if (employer.checked) {
+                selectedCount++;
+                selectedPage = "http://127.0.0.1:8001/job_details";
+            }
+            if (jobseeker.checked) {
+                selectedCount++;
+                selectedPage = "http://127.0.0.1:8001/job_seeker";
+            }
+
+            if (selectedCount === 0) {
+                errorMessage.textContent = "Please select a role before proceeding.";
+            } else if (selectedCount > 1) {
+                errorMessage.textContent = "Please select only one option.";
+            } else {
+                window.location.href = selectedPage;
+            }
+        }
+    </script>
 </body>
 </html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!--<!DOCTYPE html>-->
+<!--<html lang="en">-->
+<!--<head>-->
+<!--    <meta charset="UTF-8">-->
+<!--    <meta name="viewport" content="width=device-width, initial-scale=1.0">-->
+<!--    <title>Job Status Checkout</title>-->
+<!--    {% load static %}-->
+<!--        <link rel="stylesheet" href="static/css/option.css">-->
+<!--    <style>-->
+<!--.container {-->
+<!--            top: 3; /* Moves the container to the top of the parent */-->
+<!--            background-color: white;-->
+<!--            max-width: 275px;-->
+<!--            width : 295px;-->
+<!--            margin: auto;-->
+<!--            padding: 30px;-->
+<!--            border: 1px solid #ccc;-->
+<!--            border-radius: 10px;-->
+<!--            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);-->
+<!--            position: fixed;-->
+<!--            top: 130px; /* 10px from the bottom of the viewport */-->
+<!--            right: 595px;-->
+<!--        }-->
+<!--    </style>-->
+<!--</head>-->
+<!--<body>-->
+<!--<div class="bg-image">-->
+<!--    <div class="container">-->
+<!--        <div class="heading"><b>Job Status</b></div><br>-->
+<!--        <div class="form-check">-->
+<!--             <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">-->
+<!--             <label class="form-check-label" for="flexCheckDefault">Employee</label>-->
+<!--        </div>-->
+<!--        <div class="form-check">-->
+<!--             <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked>-->
+<!--             <label class="form-check-label" for="flexCheckChecked">Employer</label>-->
+<!--        </div>-->
+<!--        <div class="form-check">-->
+<!--             <input class="form-check-input" type="checkbox" value=""  checked>-->
+<!--             <label class="form-check-label" for="flexCheckChecked">Job Seeker</label>-->
+<!--        </div>-->
+<!--           <a href="{% url 'new_app:job_details' %}" class="link-button">Next</a>-->
+<!--    </div>-->
+<!--    </div>-->
+<!--</body>-->
+<!--</html>-->

@@ -81,63 +81,39 @@ select.form-control {
 input::before {
     content: none; /* Ensure there's no content added before the input field */
 }
-.custom-file-upload {
-    position: relative;
-    overflow: hidden;
-    display: inline-block;
-    position: relative;
-<!--    width: 100%; /* Ensures the custom upload container takes the full width */-->
-<!--    height: 45px;-->
-<!--    border-radius: 5px;-->
-<!--    display: flex;-->
-<!--    align-items: center;
-
-      }
-
-<!--.custom-file-input {-->
-<!--    opacity: 0;-->
-<!--    width: 800px; /* Adjust the width as needed */-->
-<!--    height: 100%;-->
-<!--    position: absolute;-->
-<!--    z-index: 1;-->
-<!--    cursor: pointer;-->
-<!--    width: 100%; /* Ensures the input field takes the full width */-->
-<!--    padding-right: 40px; /* Add space for the icon */-->
-<!--    box-sizing: border-box;-->
-<!--}-->
-
-.upload-icon {
-    display: inline-block;
-    width: 100%;
-    /* Adjust the width of the upload icon container if needed */
-<!--    position:absolute;-->
-<!--             right: 625px;-->
-<!--             top: 860px;-->
-<!--             transform: translateY(-30%);-->
+.custom-file-input {
+    width: 100%; /* Full width of the container */
+    padding: 10px; /* Add padding for better spacing */
+    border: 1px solid #ccc; /* Standard border to make it visible */
+    border-radius: 4px; /* Slightly rounded corners */
+    box-sizing: border-box; /* Ensures padding doesn't affect total width */
+    cursor: pointer; /* Pointer cursor to indicate interactivity */
 }
 
-
-<!--.upload-icon svg {-->
-<!--    position:absolute;-->
-<!--             right: 625px;-->
-<!--             top: 860px;-->
-<!--             transform: translateY(-30%);-->
-<!--}-->
+.custom-file-input:focus {
+    border-color: #007bff; /* Border color on focus */
+    outline: none; /* Remove default outline */
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5); /* Light shadow on focus */
+}
 
     </style>
 </head>
 <body>
  <div class="container">
-     <form method="post">
-         <h2 class="text-center">Personal Details</h2>
-         {% csrf_token %}
-         {{ form.as_p }}
+     <form method="post" enctype="multipart/form-data">
+         <center><h2>Personal Details</h2></center>
+    {% csrf_token %}
+    {{ form.as_p }}
 
 
-         <button type="submit" id="register-btn">Next</button>
-     </form>
+
+    <button type="submit" id="register-btn">Next</button>
+</form>
+
+
+
+
  </div>
-
 </body>
 </html>
 

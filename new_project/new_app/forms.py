@@ -46,16 +46,16 @@ class RegisterForm (forms.ModelForm):
                 'placeholder': ' Qualification',
             }),
             'profile_picture': forms.FileInput(attrs={
-                'class': 'form-control',
-                'placeholder': ' Profile_Picture',
+                'class': 'custom-file-input',
+                'placeholder': 'Upload Profile Picture',
             }),
-            'multiple_image':forms.FileInput(attrs={
-                'class': 'form-control',
-                'placeholder': ' Add More Image',
+            'multiple_image': forms.FileInput(attrs={
+                'class': 'custom-file-input',
+                'placeholder': 'Add More Images',
             }),
             'short_reel': forms.FileInput(attrs={
-                'class': 'form-control',
-                'placeholder': ' Short Reel',
+                'class': 'custom-file-input',
+                'placeholder': 'Upload Short Reel',
             }),
         }
 
