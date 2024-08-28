@@ -134,7 +134,28 @@ class EmployerForm(forms.ModelForm):
         model = User
         fields = ['company_name','designation','work_location']
         widgets = {
-            'company_name': forms.TextInput({'class': 'form-control'}),
-            'designation': forms.Select({'class': 'form-control'}),
-            'work_location': forms.Select({'class': 'form-control'})
+            'company_name': forms.TextInput(attrs={
+                'class': 'form-control',
+                'placeholder': ' Company Name',
+            }),
+
+            'designation': forms.Select(attrs={
+                'class': 'form-control',
+                'placeholder': ' Designation',
+            }),
+            'work_location': forms.Select(attrs={
+                'class': 'form-control',
+                'placeholder': ' Work Location',
+            }),
         }
+
+        labels = {
+            'company_name': '',
+            'designation': ' ',
+            'work_location': ' ',
+        }
+    def __init__(self, *args, **kwargs):
+       super(EmployerForm, self).__init__(*args, **kwargs)
+       self.fields['company_name'].empty_label = "Company Name"
+       self.fields['designation'].empty_label = "Designation"
+       self.fields['work_location'].empty_label = "Work Location"

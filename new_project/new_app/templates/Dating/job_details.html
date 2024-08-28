@@ -7,83 +7,88 @@
 <!--    {% load static %}-->
 <!--        <link rel="stylesheet" href="static/css/details.css">-->
     <style>
-body {
+      body {
             background-image: url('/static/image/background.jpg');
-            background-position: center -60%  ;
-            background-size: cover;
-            display: flex;
+            background-position: center 120%  ;
             justify-content: center;
             align-items: center;
             height: 100vh;
-            margin: 0;
-            font-family: Arial, sans-serif;
-            background-color: #f4f4f4;
-        }
-        .container {
+            background-size: auto;
+            background-repeat: no-repeat;
+
+            }
+
+      .container {
+            position: fixed;
+            top:150px;
+            right: 600px;
             background-color: white;
-            max-width: 500px;
-            width: 305px;
-            margin: auto;
-            padding: 20px;
-            border: 1px solid #ccc;
             border-radius: 10px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        }
-        .heading {
-            font-size: 26px;
-            text-align: center;
-            left:10px;
-            margin-bottom: 20px;
-        }
-          .personal-details-form {
-    display: flex;
-    flex-direction: column;
+            width: 280px;
+            padding: 20px;
+            margin-top: -20px;
+            line-height: 10px;
 }
 
-.personal-details-form label {
-    margin: 10px 0 5px;
-    font-weight: bold;
-}
 
-.personal-details-form input {
-    padding: 10px;
-    margin-bottom: 15px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-}
-        .link-button {
-    display: inline-block;
-    padding: 10px 20px;
-    font-size: 16px;
-    width:270px;
+
+
+form h2 {
     text-align: center;
-    color: #fff;
-    background-color: black; /* Button background color */
-    text-decoration: none; /* Remove underline from link */
-    border-radius: 5px; /* Rounded corners */
-    border: 1px solid #007bff; /* Border matching the background */
-    transition: background-color 0.3s, color 0.3s; /* Smooth transition */
+    margin-bottom: 20px;
 }
 
-.link-button:hover {
-    background-color: #0056b3; /* Darker background on hover */
-    color: #e6e6e6; /* Change text color on hover */
+.form-control {
+    width: 250px;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    font-size: 16px;
+}
+        button {
+    width: 100%;
+    padding: 15px;
+    border: none;
+    border-radius: 10px;
+    font-size: 16px;
+    cursor: pointer;
+    margin-bottom: 10px;
+}
+
+button#register-btn {
+    background-color: #000;
+    color: #fff;
+}
+ul {
+    list-style-type: none; /* Removes bullet points */
+    padding-left: 0; /* Removes any left padding */
+    margin: 0; /* Removes any margins */
+}
+select.form-control {
+    height: auto; /* Ensure the height adjusts based on content */
+    padding-top: 15px; /* Adjust padding to center text */
+    padding-bottom: 10px; /* Adjust padding to center text */
+    line-height: 2; /* Adjust line height for better text alignment */
+    font-size: 16px; /* Adjust font size if needed */
+    box-sizing: border-box; /* Ensure padding is included in height calculation */
+}
+input::before {
+    content: none; /* Ensure there's no content added before the input field */
 }
     </style>
 </head>
 <body>
     <div class="container">
-        <div class="heading"><b>Job Details</b></div><br>
-<form class="personal-details-form" method="post">
-            <label for="Company Name"></label>
-            <input  id="Company Name" name="Company Name" placeholder="Company Name">
+          <form method="post" enctype="multipart/form-data">
+         <center><h2>Job Details</h2></center><br>
+         {% csrf_token %}
+         {{ form.as_p }}
 
-           <label for="Designation"></label>
-           <input  id="Designation" name="Designation" placeholder="Designation">
 
-          <label for="Location"></label>
-          <input id="Location" name="Location"  placeholder="Location"><br><br>
-          <a href="" class="link-button">Next</a>
+
+    <button type="submit" id="register-btn">Next</button>
 </form>
     </div>
 </body>
