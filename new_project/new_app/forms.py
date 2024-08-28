@@ -21,6 +21,7 @@ class RegisterForm (forms.ModelForm):
 
             'dob': forms.DateInput(attrs={
                 'class': 'form-control',
+                'type':'date',
                 'placeholder': 'DOB',
             }),
             'hobbies': forms.Select(attrs={
