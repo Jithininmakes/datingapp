@@ -50,6 +50,7 @@ form h2 {
     border: 1px solid #ccc;
     border-radius: 5px;
     font-size: 16px;
+    color: #D3D3D3;
 }
         button {
     width: 100%;
@@ -81,20 +82,7 @@ select.form-control {
 input::before {
     content: none; /* Ensure there's no content added before the input field */
 }
-<!--.custom-file-input {-->
-<!--    width: 100%; /* Full width of the container */-->
-<!--    padding: 10px; /* Add padding for better spacing */-->
-<!--    border: 1px solid #ccc; /* Standard border to make it visible */-->
-<!--    border-radius: 4px; /* Slightly rounded corners */-->
-<!--    box-sizing: border-box; /* Ensures padding doesn't affect total width */-->
-<!--    cursor: pointer; /* Pointer cursor to indicate interactivity */-->
-<!--}-->
 
-<!--.custom-file-input:focus {-->
-<!--    border-color: #007bff; /* Border color on focus */-->
-<!--    outline: none; /* Remove default outline */-->
-<!--    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5); /* Light shadow on focus */-->
-<!--}-->
 
 .file-input-wrapper {
     position: relative;
@@ -130,33 +118,12 @@ input::before {
     padding: -10px;
 }
 
-.custom-file-label {
-    display: block;
-    margin-bottom: 5px;
-    font-weight: bold;
-}
 
-.custom-file-input {
-    display: flex;
-    align-items: center;
-    border: 1px solid #ced4da;
-    padding: -10px;
-    cursor: pointer;
-    background-color: #f8f9fa;
-}
 
-.custom-file-input span {
-    color: #6c757d;
-    flex-grow: 1;
-}
-
-.custom-file-input:hover {
-    background-color: #e2e6ea;
-}
 
 .file label {
   display: flex;
-  color: black;
+  color: #D3D3D3;
   padding: 0.9rem;
   font-family: sans-serif;
   border: 1px solid #ced4da;
@@ -164,12 +131,26 @@ input::before {
   cursor: pointer;
   margin-top: 1rem;
 }
-        .file svg {
-             position:absolute;
-             right: 620px;
-             top: 600px;
-             transform: translateY(40%);
+.file-icon svg {
+      position:absolute;
+      right: 620px;
+      top: 600px;
+     transform: translateY(40%);
+        }
 
+
+.more-file-icon svg {
+      position:absolute;
+      right: 620px;
+      top: 655px;
+     transform: translateY(40%);
+        }
+.reel-icon svg {
+      position:absolute;
+      right: 620px;
+      top: 710px;
+     transform: translateY(40%);
+        }
     </style>
 </head>
 <body>
@@ -212,45 +193,42 @@ input::before {
         {{ form.qualification }}
     </div>
 
-<div class="file">
-     <input type="file" id="actual-btn" hidden/>
-     <label for="actual-btn">Profile Pic</label>
+    <div class="file">
+    <input type="file" id="profile-picture-input" hidden onchange="updatePlaceholder()"/>
+    <label for="profile-picture-input" id="custom-placeholder-profile"> Profile Pic</label>
     <div class="file-icon" onclick="document.getElementById('profile-picture-input').click();">
         <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" class="bi bi-images" viewBox="0 0 16 16">
             <path d="M4.502 9a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3"/>
             <path d="M14.002 13a2 2 0 0 1-2 2h-10a2 2 0 0 1-2-2V5A2 2 0 0 1 2 3a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v8a2
-            2 0 0 1-1.998 2M14 2H4a1 1 0 0 0-1 1h9.002a2 2 0 0 1 2 2v7A1 1 0 0 0 15 11V3a1 1 0 0 0-1-1M2.002 4a1 1 0 0 0-1 1v8l2.646-2.354a.5.5 0 0 1 .63-.062l2.66 1.773 3.71-3.71a.5.5 0 0 1 .577-.094l1.777 1.947V5a1 1 0 0 0-1-1z"/>
+               2 0 0 1-1.998 2M14 2H4a1 1 0 0 0-1 1h9.002a2 2 0 0 1 2 2v7A1 1 0 0 0 15 11V3a1 1 0 0 0-1-1M2.002 4a1 1 0 0 0-1 1v8l2.646-2.354a.5.5 0 0 1 .63-.062l2.66 1.773 3.71-3.71a.5.5 0 0 1 .577-.094l1.777 1.947V5a1 1 0 0 0-1-1z"/>
         </svg>
     </div>
 </div>
 
-    <div class="file-input-wrapper">
-        {{ form.profile_picture.label_tag }}
-        {{ form.profile_picture }}
-        <span class="placeholder-text">Upload Profile Picture</span>
+
+    <div class="file">
+       <input type="file" id="image-btn" hidden/>
+       <label for="profile-picture-input">Add More Image</label>
+       <div class="more-file-icon" onclick="document.getElementById('profile-picture-input').click();">
+          <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" class="bi bi-images" viewBox="0 0 16 16">
+              <path d="M4.502 9a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3"/>
+              <path d="M14.002 13a2 2 0 0 1-2 2h-10a2 2 0 0 1-2-2V5A2 2 0 0 1 2 3a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v8a2
+               2 0 0 1-1.998 2M14 2H4a1 1 0 0 0-1 1h9.002a2 2 0 0 1 2 2v7A1 1 0 0 0 15 11V3a1 1 0 0 0-1-1M2.002 4a1 1 0 0 0-1 1v8l2.646-2.354a.5.5 0 0 1 .63-.062l2.66 1.773 3.71-3.71a.5.5 0 0 1 .577-.094l1.777 1.947V5a1 1 0 0 0-1-1z"/>
+          </svg>
+       </div>
     </div>
 
-    <div class="file-input-wrapper">
-        {{ form.multiple_image.label_tag }}
-        {{ form.multiple_image }}
-        <span class="placeholder-text">Upload Multiple Picture</span>
-
-        </div>
-
-    <div class="file-input-wrapper">
-        {{ form.short_reel.label_tag }}
-        {{ form.short_reel }}
-        <span class="placeholder-text">Upload Short Reel</span>
-    </div>
-
-         <div class="file-input-wrapper">
-    <label for="profile-picture-input" class="custom-file-label"> Profile Pic</label>
-    <input id="profile-picture-input" type="file" name="profile_picture" style="display: none;">
-    <div class="custom-file-input" onclick="document.getElementById('profile-picture-input').click();">
-        <span id="custom-placeholder-profile"> Profile Pic</span>
-    </div>
-</div><br><br>
-
+   <div class="file">
+       <input type="file" id="reel-btn" hidden/>
+       <label for="profile-picture-input">Short Reel</label>
+       <div class="reel-icon" onclick="document.getElementById('profile-picture-input').click();">
+          <svg xmlns="http://www.w3.org/2000/svg" width="45" height="45" fill="currentColor"
+             class="bi bi-camera-video" viewBox="0 0 16 16">
+             <path fill-rule="evenodd" d="M0 5a2 2 0 0 1 2-2h7.5a2 2 0 0 1 1.983 1.738l3.11-1.382A1 1 0 0 1 16
+             4.269v7.462a1 1 0 0 1-1.406.913l-3.111-1.382A2 2 0 0 1 9.5 13H2a2 2 0 0 1-2-2zm11.5 5.175 3.5 1.556V4.269l-3.5 1.556zM2 4a1 1 0 0 0-1 1v6a1 1 0 0 0 1 1h7.5a1 1 0 0 0 1-1V5a1 1 0 0 0-1-1z"/>
+          </svg>
+       </div>
+    </div><br><br>
 
 
     <button type="submit" id="register-btn">Next</button>
@@ -260,6 +238,7 @@ input::before {
     var fileName = this.files.length ? this.files[0].name : "Choose Profile Picture";
     document.getElementById('custom-placeholder-profile').textContent = fileName;
 });
+
 
 </script>
 
@@ -274,6 +253,24 @@ input::before {
 
 
 
+<!--    <div class="file-input-wrapper">-->
+<!--        {{ form.profile_picture.label_tag }}-->
+<!--        {{ form.profile_picture }}-->
+<!--        <span class="placeholder-text">Upload Profile Picture</span>-->
+<!--    </div>-->
+
+<!--    <div class="file-input-wrapper">-->
+<!--        {{ form.multiple_image.label_tag }}-->
+<!--        {{ form.multiple_image }}-->
+<!--        <span class="placeholder-text">Upload Multiple Picture</span>-->
+
+<!--        </div>-->
+
+<!--    <div class="file-input-wrapper">-->
+<!--        {{ form.short_reel.label_tag }}-->
+<!--        {{ form.short_reel }}-->
+<!--        <span class="placeholder-text">Upload Short Reel</span>-->
+<!--    </div>-->
 
 
 
