@@ -125,6 +125,50 @@ input::before {
 .file-input-wrapper input[type="file"]:not(:placeholder-shown) + .placeholder-text {
     display: none;
 }
+.file-input-wrapper {
+    margin-bottom: 15px;
+    padding: -10px;
+}
+
+.custom-file-label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.custom-file-input {
+    display: flex;
+    align-items: center;
+    border: 1px solid #ced4da;
+    padding: -10px;
+    cursor: pointer;
+    background-color: #f8f9fa;
+}
+
+.custom-file-input span {
+    color: #6c757d;
+    flex-grow: 1;
+}
+
+.custom-file-input:hover {
+    background-color: #e2e6ea;
+}
+
+.file label {
+  display: flex;
+  color: black;
+  padding: 0.9rem;
+  font-family: sans-serif;
+  border: 1px solid #ced4da;
+  border-radius: 0.3rem;
+  cursor: pointer;
+  margin-top: 1rem;
+}
+        .file svg {
+             position:absolute;
+             right: 620px;
+             top: 600px;
+             transform: translateY(40%);
 
     </style>
 </head>
@@ -168,6 +212,18 @@ input::before {
         {{ form.qualification }}
     </div>
 
+<div class="file">
+     <input type="file" id="actual-btn" hidden/>
+     <label for="actual-btn">Profile Pic</label>
+    <div class="file-icon" onclick="document.getElementById('profile-picture-input').click();">
+        <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" class="bi bi-images" viewBox="0 0 16 16">
+            <path d="M4.502 9a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3"/>
+            <path d="M14.002 13a2 2 0 0 1-2 2h-10a2 2 0 0 1-2-2V5A2 2 0 0 1 2 3a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v8a2
+            2 0 0 1-1.998 2M14 2H4a1 1 0 0 0-1 1h9.002a2 2 0 0 1 2 2v7A1 1 0 0 0 15 11V3a1 1 0 0 0-1-1M2.002 4a1 1 0 0 0-1 1v8l2.646-2.354a.5.5 0 0 1 .63-.062l2.66 1.773 3.71-3.71a.5.5 0 0 1 .577-.094l1.777 1.947V5a1 1 0 0 0-1-1z"/>
+        </svg>
+    </div>
+</div>
+
     <div class="file-input-wrapper">
         {{ form.profile_picture.label_tag }}
         {{ form.profile_picture }}
@@ -187,21 +243,24 @@ input::before {
         <span class="placeholder-text">Upload Short Reel</span>
     </div>
 
+         <div class="file-input-wrapper">
+    <label for="profile-picture-input" class="custom-file-label"> Profile Pic</label>
+    <input id="profile-picture-input" type="file" name="profile_picture" style="display: none;">
+    <div class="custom-file-input" onclick="document.getElementById('profile-picture-input').click();">
+        <span id="custom-placeholder-profile"> Profile Pic</span>
+    </div>
+</div><br><br>
+
+
+
     <button type="submit" id="register-btn">Next</button>
 </form>
 <script>
-    document.addEventListener('DOMContentLoaded', function() {
-    document.querySelectorAll('input[type="file"]').forEach(input => {
-        input.addEventListener('change', function() {
-            let label = this.nextElementSibling;
-            if (this.files.length > 0) {
-                label.textContent = this.files[0].name;
-            } else {
-                label.textContent = 'No file selected';
-            }
-        });
-    });
+  document.getElementById('profile-picture-input').addEventListener('change', function() {
+    var fileName = this.files.length ? this.files[0].name : "Choose Profile Picture";
+    document.getElementById('custom-placeholder-profile').textContent = fileName;
 });
+
 </script>
 
 
