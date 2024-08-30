@@ -194,6 +194,7 @@ input::before {
     </div>
 
     <div class="file">
+        {{ form.profile_picture }}
     <input type="file" id="profile-picture-input" hidden onchange="updatePlaceholder()"/>
     <label for="profile-picture-input" id="custom-placeholder-profile"> Profile Pic</label>
     <div class="file-icon" onclick="document.getElementById('profile-picture-input').click();">
