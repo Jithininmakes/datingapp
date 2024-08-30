@@ -79,8 +79,12 @@ select.form-control {
     font-size: 16px; /* Adjust font size if needed */
     box-sizing: border-box; /* Ensure padding is included in height calculation */
 }
-input::before {
-    content: none; /* Ensure there's no content added before the input field */
+/* Target all pseudo-elements with the content ":" */
+input::before,
+input::after,
+label::before,
+label::after {
+    content: none !important; /* Removes the content */
 }
 
 
@@ -194,7 +198,6 @@ input::before {
     </div>
 
     <div class="file">
-        {{ form.profile_picture }}
     <input type="file" id="profile-picture-input" hidden onchange="updatePlaceholder()"/>
     <label for="profile-picture-input" id="custom-placeholder-profile"> Profile Pic</label>
     <div class="file-icon" onclick="document.getElementById('profile-picture-input').click();">
