@@ -1,62 +1,141 @@
-body {
+ body {
             background-image: url('/static/image/background.jpg');
-            background-position: center -60%  ;
-            background-size: cover;
-            display: flex;
+            background-position: center 120%  ;
             justify-content: center;
             align-items: center;
             height: 100vh;
-            margin: 0;
-            font-family: Arial, sans-serif;
-            background-color: #f4f4f4;
-        }
+            background-size: auto;
+            background-repeat: no-repeat;
+
+            }
+
         .container {
-            background-color: white;
-            max-width: 500px;
-            width: 325px;
-            margin: auto;
-            padding: 20px;
-            border: 1px solid #ccc;
-            border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        }
-        .heading {
-            font-size: 26px;
-            text-align: center;
-            left:10px;
-            margin-bottom: 20px;
-        }
-          .personal-details-form {
-    display: flex;
-    flex-direction: column;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 320px;
+    padding: 20px;
+    margin-top: 20px;
+    line-height: 10px;
 }
 
-.personal-details-form label {
-    margin: 10px 0 5px;
-    font-weight: bold;
+
+
+
+form h2 {
+    text-align: center;
+    margin-bottom: 20px;
 }
 
-.personal-details-form input {
+.form-control {
+    width: 100%;
     padding: 10px;
     margin-bottom: 15px;
     border: 1px solid #ccc;
-    border-radius: 4px;
-}
-        .link-button {
-    display: inline-block;
-    padding: 10px 20px;
+    border-radius: 5px;
     font-size: 16px;
-    width:290px;
-    text-align: center;
-    color: #fff;
-    background-color: black; /* Button background color */
-    text-decoration: none; /* Remove underline from link */
-    border-radius: 5px; /* Rounded corners */
-    border: 1px solid #007bff; /* Border matching the background */
-    transition: background-color 0.3s, color 0.3s; /* Smooth transition */
+    color: #D3D3D3;
+}
+        button {
+    width: 100%;
+    padding: 15px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    margin-bottom: 10px;
 }
 
-.link-button:hover {
-    background-color: #0056b3; /* Darker background on hover */
-    color: #e6e6e6; /* Change text color on hover */
+button#register-btn {
+    background-color: #000;
+    color: #fff;
 }
+ul {
+    list-style-type: none; /* Removes bullet points */
+    padding-left: 0; /* Removes any left padding */
+    margin: 0; /* Removes any margins */
+}
+select.form-control {
+    height: auto; /* Ensure the height adjusts based on content */
+    padding-top: 10px; /* Adjust padding to center text */
+    padding-bottom: 10px; /* Adjust padding to center text */
+    line-height: 1.5; /* Adjust line height for better text alignment */
+    font-size: 16px; /* Adjust font size if needed */
+    box-sizing: border-box; /* Ensure padding is included in height calculation */
+}
+<!--/* Target all pseudo-elements with the content ":" */-->
+<!--input::before,-->
+<!--input::after,-->
+<!--label::before,-->
+<!--label::after {-->
+<!--    content: none !important; /* Removes the content */-->
+<!--}-->
+
+
+.file-input-wrapper {
+    position: relative;
+    display: inline-block;
+    width: 100%;
+}
+
+.file-input-wrapper input[type="file"] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ced4da;
+    position: relative;
+    z-index: 1;
+
+}
+
+.file-input-wrapper .placeholder-text {
+    position: absolute;
+    top: 50%;
+    left: 10px;
+    transform: translateY(-50%);
+    color: #6c757d;
+    pointer-events: none;
+    z-index: 0;
+}
+
+.file-input-wrapper input[type="file"]:focus + .placeholder-text,
+.file-input-wrapper input[type="file"]:not(:placeholder-shown) + .placeholder-text {
+    display: none;
+}
+.file-input-wrapper {
+    margin-bottom: 15px;
+    padding: -10px;
+}
+
+
+
+
+.file label {
+  display: flex;
+  color: #D3D3D3;
+  padding: 0.9rem;
+  font-family: sans-serif;
+  border: 1px solid #ced4da;
+  border-radius: 0.3rem;
+  cursor: pointer;
+  margin-top: 1rem;
+}
+.file-icon svg {
+      position:absolute;
+      right: 620px;
+      top: 600px;
+     transform: translateY(40%);
+        }
+
+
+.more-file-icon svg {
+      position:absolute;
+      right: 620px;
+      top: 655px;
+     transform: translateY(40%);
+        }
+.reel-icon svg {
+      position:absolute;
+      right: 620px;
+      top: 710px;
+     transform: translateY(40%);
+        }
