@@ -12,7 +12,28 @@
     <link href="https://fonts.googleapis.com/css2?family=Play:wght@400;700&display=swap" rel="stylesheet">
     {% load static %}
     <link rel="stylesheet" href="{% static 'css/details.css' %}">
+<style>
+    .file-icon svg {
+      position:absolute;
+      right: 620px;
+      top: 495px;
+     transform: translateY(40%);
+        }
 
+
+.more-file-icon svg {
+      position:absolute;
+      right: 620px;
+      top: 550px;
+     transform: translateY(40%);
+        }
+.reel-icon svg {
+      position:absolute;
+      right: 620px;
+      top: 605px;
+     transform: translateY(40%);
+        }
+</style>
 </head>
 <body>
  <div class="container">
@@ -20,37 +41,37 @@
          <center><h2>Personal Details</h2></center>
     {% csrf_token %}
    <div class="form-group">
-        {{ form.age.label_tag }}
+<!--        {{ form.age.label_tag }}-->
         {{ form.age }}
     </div>
 
     <div class="form-group">
-        {{ form.dob.label_tag }}
+<!--        {{ form.dob.label_tag }}-->
         {{ form.dob }}
     </div>
 
     <div class="form-group">
-        {{ form.hobbies.label_tag }}
+<!--        {{ form.hobbies.label_tag }}-->
         {{ form.hobbies }}
     </div>
 
     <div class="form-group">
-        {{ form.interest.label_tag }}
+<!--        {{ form.interest.label_tag }}-->
         {{ form.interest }}
     </div>
 
     <div class="form-group">
-        {{ form.drinking_habits.label_tag }}
+<!--        {{ form.drinking_habits.label_tag }}-->
         {{ form.drinking_habits }}
     </div>
 
     <div class="form-group">
-        {{ form.smoking_habits.label_tag }}
+<!--        {{ form.smoking_habits.label_tag }}-->
         {{ form.smoking_habits }}
     </div>
 
     <div class="form-group">
-        {{ form.qualification.label_tag }}
+<!--        {{ form.qualification.label_tag }}-->
         {{ form.qualification }}
     </div>
 

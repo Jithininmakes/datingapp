@@ -119,23 +119,3 @@ select.form-control {
   cursor: pointer;
   margin-top: 1rem;
 }
-.file-icon svg {
-      position:absolute;
-      right: 620px;
-      top: 600px;
-     transform: translateY(40%);
-        }
-
-
-.more-file-icon svg {
-      position:absolute;
-      right: 620px;
-      top: 655px;
-     transform: translateY(40%);
-        }
-.reel-icon svg {
-      position:absolute;
-      right: 620px;
-      top: 710px;
-     transform: translateY(40%);
-        }
